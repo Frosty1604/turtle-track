@@ -104,20 +104,7 @@
       }
     },
     "deploy": {
-      "executor": "nx:run-commands",
-      "options": {
-        "commands": [
-          "git branch -D gh-pages",
-          "git branch gh-pages",
-          "git checkout gh-pages",
-          "nx build --prod --output-path docs --base-href=/turtle-track/",
-          "zx ./tools/scripts/generate-gh-html.mjs",
-          "git add .",
-          "git commit -m \"deploy new version\"",
-          "git push --set-upstream origin gh-pages --force"
-        ],
-        "parallel": false
-      }
+      "executor": "angular-cli-ghpages:deploy"
     }
   }
 }
