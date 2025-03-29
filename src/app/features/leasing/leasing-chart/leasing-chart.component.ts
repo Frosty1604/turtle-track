@@ -7,11 +7,11 @@ import {
   Signal,
 } from '@angular/core';
 import { ApexOptions, ChartComponent } from 'ng-apexcharts';
-import { AnalyticsData } from '../../core/services/analytics/analytics.service';
-import { OdoService } from '../../core/services/odo/odo.service';
+import { AnalyticsData } from '../../../core/services/analytics/analytics.service';
+import { OdoService } from '../../../core/services/odo/odo.service';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { combineLatest, map } from 'rxjs';
-import { LeasingInfoService } from '../../core/services/settings/leasing-info.service';
+import { LeasingInfoService } from '../../../core/services/settings/leasing-info.service';
 import { defaultChartOptions } from './default-chart-options';
 
 @Component({
@@ -20,18 +20,18 @@ import { defaultChartOptions } from './default-chart-options';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (chartState(); as state) {
-    <apx-chart
-      [series]="state.series!"
-      [chart]="state.chart!"
-      [dataLabels]="state.dataLabels!"
-      [stroke]="state.stroke!"
-      [xaxis]="state.xaxis!"
-      [tooltip]="state.tooltip!"
-      [grid]="state.grid!"
-      [legend]="state.legend!"
-      [yaxis]="state.yaxis!"
-      [colors]="state.colors!"
-    />
+      <apx-chart
+        [series]="state.series!"
+        [chart]="state.chart!"
+        [dataLabels]="state.dataLabels!"
+        [stroke]="state.stroke!"
+        [xaxis]="state.xaxis!"
+        [tooltip]="state.tooltip!"
+        [grid]="state.grid!"
+        [legend]="state.legend!"
+        [yaxis]="state.yaxis!"
+        [colors]="state.colors!"
+      />
     }
   `,
   host: {
@@ -80,7 +80,7 @@ export class LeasingChartComponent {
           new Date(leasingInfo.startDate).toISOString(),
           currentOdo!.dateTime,
         ],
-      }))
-    )
+      })),
+    ),
   );
 }

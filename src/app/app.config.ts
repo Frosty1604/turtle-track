@@ -12,11 +12,13 @@ import { provideFastSVG } from '@push-based/ngx-fast-svg';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { provideServiceWorker } from '@angular/service-worker';
 
+const iconPathPrefix = isDevMode() ? '' : '/turtle-track';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideExperimentalZonelessChangeDetection(),
     provideRouter(appRoutes),
-    provideFastSVG({ url: (name) => `/icons/${name}.svg` }),
+    provideFastSVG({ url: (name) => `${iconPathPrefix}/icons/${name}.svg` }),
     provideAppInitializer(() => initDB()),
     importProvidersFrom(NgApexchartsModule),
     provideServiceWorker('ngsw-worker.js', {

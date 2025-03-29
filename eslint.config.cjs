@@ -28,7 +28,6 @@ module.exports = [
         'error',
         {
           type: 'attribute',
-          prefix: 'tu',
           style: 'camelCase',
         },
       ],

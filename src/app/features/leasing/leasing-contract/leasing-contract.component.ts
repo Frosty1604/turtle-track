@@ -7,35 +7,33 @@ import {
   viewChild,
 } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { DateValidatorDirective } from '../../directives/date-validator.directive';
+import { DateValidatorDirective } from '../../../core/directives/date-validator.directive';
 import { convertToHtmlInputDate } from '../../../utils/date.utils';
-import { LeasingInfo } from '../../schema/leasing-info.model';
-import { LeasingInfoService } from '../../services/settings/leasing-info.service';
+import { LeasingInfo } from '../../../core/schema/leasing-info.model';
+import { LeasingInfoService } from '../../../core/services/settings/leasing-info.service';
 
 @Component({
-  selector: 'tu-leasing-info',
-  templateUrl: './leasing-info.component.html',
+  selector: 'tu-leasing-contract',
+  templateUrl: './leasing-contract.component.html',
   imports: [FormsModule, DateValidatorDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LeasingInfoComponent {
+export class LeasingContractComponent {
   private readonly leasingInfoService = inject(LeasingInfoService);
 
   readonly form = viewChild.required<NgForm>('form');
 
   readonly leasingInfo = signal(this.leasingInfoService.getLeasingInfo());
 
-  readonly yearlyKmLimit = signal<number | null>(
-    this.leasingInfo() ? this.leasingInfo()!.yearlyKmLimit : null
+  readonly yearlyKmLimit = signal<number | undefined>(
+    this.leasingInfo()?.yearlyKmLimit,
   );
 
-  readonly initialOdo = signal<number | null>(
-    this.leasingInfo() ? this.leasingInfo()!.initialOdo : null
+  readonly initialOdo = signal<number | undefined>(
+    this.leasingInfo()?.initialOdo,
   );
   readonly startDate = signal<string | null>(
-    this.leasingInfo()
-      ? convertToHtmlInputDate(this.leasingInfo()!.startDate)
-      : convertToHtmlInputDate(new Date())
+    convertToHtmlInputDate(this.leasingInfo()?.startDate),
   );
 
   readonly submitted = output();

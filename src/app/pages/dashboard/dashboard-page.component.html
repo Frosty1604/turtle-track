@@ -11,16 +11,14 @@
 <main class="flex flex-col gap-8 max-sm:px-4">
   @if (latestOdoEntry?.odo) {
     <div>
-      <h1 class="text-2xl mb-4">Stats</h1>
       <tu-summary [totalKm]="latestOdoEntry!.odo" [difference]="analyticsData.differenceFromExpected"
                   [differenceInDays]="analyticsData.idleDaysToReachExpectedKm" />
     </div>
   }
   <div>
-    <h1 class="text-2xl mb-4">Dashboard</h1>
     <tu-leasing-chart [analyticsData]="analyticsData" />
   </div>
-  <div class="absolute right-8 bottom-8">
+  <div class="fixed right-8 bottom-8 shadow-xl">
     <button class="btn-circle btn btn-accent btn-lg" (click)="openEntryModal()">
       <fast-svg name="plus" size="36" />
     </button>
@@ -32,10 +30,10 @@
     @if (modal.open && dialogComponent()) {
       @switch (dialogComponent()) {
         @case ('add') {
-          <tu-add-entry (submitted)="closeModal()" (canceled)="closeModal()" />
+          <tu-add-odo-entry (submitted)="closeModal()" (canceled)="closeModal()" />
         }
-        @case ('leasingInfo') {
-          <tu-leasing-info
+        @case ('leasingContract') {
+          <tu-leasing-contract
             (submitted)="leasingInfoSaved()"
             (canceled)="closeModal()"
           />

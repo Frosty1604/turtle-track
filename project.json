@@ -104,7 +104,11 @@
       }
     },
     "deploy": {
-      "executor": "angular-cli-ghpages:deploy"
+      "executor": "angular-cli-ghpages:deploy",
+      "options": {
+        "baseHref": "https://frosty1604.github.io/turtle-track/",
+        "name": "Turtle Track"
+      }
     }
   }
 }

@@ -11,21 +11,21 @@ import { OdoService } from '../../core/services/odo/odo.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { LeasingInfoService } from '../../core/services/settings/leasing-info.service';
 import { FastSvgComponent } from '@push-based/ngx-fast-svg';
-import { AddEntryComponent } from '../../features/add-entry/add-entry.component';
-import { LeasingInfoComponent } from '../../features/leasing-info/leasing-info.component';
+import { AddOdoEntryComponent } from '../../features/odo/add-odo-entry.component';
+import { LeasingContractComponent } from '../../features/leasing/leasing-contract/leasing-contract.component';
 import {
   AnalyticsData,
   AnalyticsService,
 } from '../../core/services/analytics/analytics.service';
-import { LeasingChartComponent } from '../../features/leasing-chart/leasing-chart.component';
+import { LeasingChartComponent } from '../../features/leasing/leasing-chart/leasing-chart.component';
 import { SummaryComponent } from '../../features/summary/summary.component';
 
 @Component({
   selector: 'tu-dashboard-page',
   imports: [
     FastSvgComponent,
-    AddEntryComponent,
-    LeasingInfoComponent,
+    AddOdoEntryComponent,
+    LeasingContractComponent,
     LeasingChartComponent,
     SummaryComponent,
   ],
@@ -36,7 +36,7 @@ import { SummaryComponent } from '../../features/summary/summary.component';
 export default class DashboardPageComponent {
   readonly modal = viewChild.required<ElementRef<HTMLDialogElement>>('modal');
 
-  readonly dialogComponent = signal<null | 'add' | 'leasingInfo'>(null);
+  readonly dialogComponent = signal<null | 'add' | 'leasingContract'>(null);
 
   readonly #leasingInfoService = inject(LeasingInfoService);
   readonly #odoService = inject(OdoService);
@@ -57,7 +57,7 @@ export default class DashboardPageComponent {
         idleDaysToReachExpectedKm: 0,
         isDistanceOverExpected: false,
       } as AnalyticsData,
-    }
+    },
   );
 
   openEntryModal() {
@@ -67,7 +67,7 @@ export default class DashboardPageComponent {
 
   openLeasingInfoModal() {
     this.modal().nativeElement.showModal();
-    this.dialogComponent.set('leasingInfo');
+    this.dialogComponent.set('leasingContract');
   }
 
   leasingInfoSaved() {

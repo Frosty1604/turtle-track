@@ -11,7 +11,7 @@ import { OdoService } from '../../core/services/odo/odo.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'tu-add-entry',
+  selector: 'tu-add-odo-entry',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [FormsModule],
   template: ` <form
@@ -44,7 +44,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
     class: 'block m-4',
   },
 })
-export class AddEntryComponent {
+export class AddOdoEntryComponent {
   readonly #odoService = inject(OdoService);
 
   readonly form = viewChild.required<NgForm>('form');
