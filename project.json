@@ -99,7 +99,7 @@
       "options": {
         "buildTarget": "turtle-track:build",
         "port": 4200,
-        "staticFilePath": "dist/turtle-track/browser",
+        "staticFilePath": "dist/turtle-track",
         "spa": true
       }
     },
