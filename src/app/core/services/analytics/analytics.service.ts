@@ -1,6 +1,12 @@
 import { inject, Injectable } from '@angular/core';
 import { LeasingInfo } from '../../schema/leasing-info.model';
-import { combineLatest, distinctUntilChanged, map, shareReplay } from 'rxjs';
+import {
+  combineLatest,
+  distinctUntilChanged,
+  filter,
+  map,
+  shareReplay,
+} from 'rxjs';
 import { LeasingInfoService } from '../settings/leasing-info.service';
 import { OdoService } from '../odo/odo.service';
 
@@ -17,27 +23,27 @@ export class AnalyticsService {
   readonly #odoService = inject(OdoService);
 
   readonly analyticsData$ = combineLatest([
-    this.#odoService.findMax(),
+    this.#odoService.findMax().pipe(filter((entry) => !!entry?.odo)),
     this.#leasingInfoService.leasingInfo$,
   ]).pipe(
     distinctUntilChanged(
-      ([prevOdo], [currentOdo]) => prevOdo?.odo === currentOdo?.odo
+      ([prevOdo], [currentOdo]) => prevOdo?.odo === currentOdo?.odo,
     ),
     map(([odo, leasingInfo]) =>
-      this.generateAnalyticsData(odo!.odo, leasingInfo)
+      this.generateAnalyticsData(odo!.odo, leasingInfo),
     ),
-    shareReplay({ bufferSize: 1, refCount: true })
+    shareReplay({ bufferSize: 1, refCount: true }),
   );
 
   private generateAnalyticsData(
     currentOdo: number,
-    leasingInfo: LeasingInfo
+    leasingInfo: LeasingInfo,
   ): AnalyticsData {
     const dailyKmLimit = leasingInfo.yearlyKmLimit! / 365;
 
     const daysSinceStart = Math.floor(
       (Date.now() - new Date(leasingInfo.startDate).getTime()) /
-        (1000 * 3600 * 24)
+        (1000 * 3600 * 24),
     );
 
     const drivenDistance = currentOdo - leasingInfo.initialOdo;
@@ -49,10 +55,10 @@ export class AnalyticsService {
     const totalExpectedDistance = dailyKmLimit * daysSinceStart;
 
     const differenceFromExpected = Math.ceil(
-      Math.abs(currentOdo - (leasingInfo.initialOdo + totalExpectedDistance))
+      Math.abs(currentOdo - (leasingInfo.initialOdo + totalExpectedDistance)),
     );
     const idleDaysToReachExpectedKm = Math.ceil(
-      differenceFromExpected / dailyKmLimit
+      differenceFromExpected / dailyKmLimit,
     );
 
     const expectedOdo =

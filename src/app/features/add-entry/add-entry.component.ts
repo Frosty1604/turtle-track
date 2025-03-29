@@ -30,7 +30,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
         name="odometer"
         required
         class="input input-bordered w-full"
-        [placeholder]="latestOdoEntry()?.odo"
+        [placeholder]="latestOdoEntry()?.odo ?? ''"
       />
     </label>
     <div class="mt-4 flex flex-row items-center justify-end w-full gap-2">
