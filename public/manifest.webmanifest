@@ -1,8 +1,8 @@
 {
-  "name": "turtle-track",
+  "name": "TurtleTrack",
   "short_name": "turtle-track",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#7480ff",
+  "background_color": "#1d232a",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
