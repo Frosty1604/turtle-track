@@ -1,0 +1,36 @@
+<form
+  (ngSubmit)="submit()"
+  #form="ngForm"
+  class="flex items-center justify-center flex-col gap-2"
+>
+  <h3 class="text-2xl self-start">ODO</h3>
+  <label class="input input-lg input-bordered w-full flex items-center gap-2">
+    <input
+      [(ngModel)]="odometer"
+      name="odometer"
+      required
+      class="grow text-right"
+      tuKmInput
+    />
+    <div class="label">
+      <span class="label-text">km</span>
+    </div>
+  </label>
+  <div class="flex row gap-2 w-full">
+    @for (value of increaseValues; track $index) {
+      <button
+        class="btn btn-neutral btn-sm md:btn-md flex-1 whitespace-nowrap"
+        (click)="increaseODO(value)"
+        type="button"
+      >
+        +{{ value }}
+      </button>
+    }
+  </div>
+  <div class="mt-4 flex flex-row items-center justify-end w-full gap-2">
+    <button (click)="cancel()" type="button" class="btn btn-ghost">
+      Cancel
+    </button>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </div>
+</form>

@@ -11,7 +11,7 @@ import { OdoService } from '../../core/services/odo/odo.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { LeasingInfoService } from '../../core/services/settings/leasing-info.service';
 import { FastSvgComponent } from '@push-based/ngx-fast-svg';
-import { AddOdoEntryComponent } from '../../features/odo/add-odo-entry.component';
+import { AddOdoFormComponent } from '../../features/odo/add-odo-form.component';
 import { LeasingContractComponent } from '../../features/leasing/leasing-contract/leasing-contract.component';
 import {
   AnalyticsData,
@@ -19,15 +19,17 @@ import {
 } from '../../core/services/analytics/analytics.service';
 import { LeasingChartComponent } from '../../features/leasing/leasing-chart/leasing-chart.component';
 import { SummaryComponent } from '../../features/summary/summary.component';
+import { EmptyOdoStateComponent } from '../../features/empty-odo-state/empty-odo-state.component';
 
 @Component({
   selector: 'tu-dashboard-page',
   imports: [
     FastSvgComponent,
-    AddOdoEntryComponent,
+    AddOdoFormComponent,
     LeasingContractComponent,
     LeasingChartComponent,
     SummaryComponent,
+    EmptyOdoStateComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './dashboard-page.component.html',

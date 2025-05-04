@@ -14,6 +14,8 @@
       <tu-summary [totalKm]="latestOdoEntry!.odo" [difference]="analyticsData.differenceFromExpected"
                   [differenceInDays]="analyticsData.idleDaysToReachExpectedKm" />
     </div>
+  } @else {
+    <tu-empty-odo-state (addEntryClicked)="openEntryModal()" />
   }
   <div>
     <tu-leasing-chart [analyticsData]="analyticsData" />
@@ -30,7 +32,7 @@
     @if (modal.open && dialogComponent()) {
       @switch (dialogComponent()) {
         @case ('add') {
-          <tu-add-odo-entry (submitted)="closeModal()" (canceled)="closeModal()" />
+          <tu-add-odo-form (submitted)="closeModal()" (canceled)="closeModal()" />
         }
         @case ('leasingContract') {
           <tu-leasing-contract

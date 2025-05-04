@@ -11,11 +11,18 @@ import { DateValidatorDirective } from '../../../core/directives/date-validator.
 import { convertToHtmlInputDate } from '../../../utils/date.utils';
 import { LeasingInfo } from '../../../core/schema/leasing-info.model';
 import { LeasingInfoService } from '../../../core/services/settings/leasing-info.service';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { KmInputDirective } from '../../../core/directives/km-input.directive';
 
 @Component({
   selector: 'tu-leasing-contract',
   templateUrl: './leasing-contract.component.html',
-  imports: [FormsModule, DateValidatorDirective],
+  imports: [FormsModule, DateValidatorDirective, KmInputDirective],
+  styles: `
+    input[type='date']::-webkit-calendar-picker-indicator {
+      margin-left: 0.25em;
+    }
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LeasingContractComponent {
@@ -23,7 +30,7 @@ export class LeasingContractComponent {
 
   readonly form = viewChild.required<NgForm>('form');
 
-  readonly leasingInfo = signal(this.leasingInfoService.getLeasingInfo());
+  readonly leasingInfo = toSignal(this.leasingInfoService.leasingInfo$);
 
   readonly yearlyKmLimit = signal<number | undefined>(
     this.leasingInfo()?.yearlyKmLimit,

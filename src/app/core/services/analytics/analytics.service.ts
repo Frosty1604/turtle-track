@@ -27,7 +27,9 @@ export class AnalyticsService {
     this.#leasingInfoService.leasingInfo$,
   ]).pipe(
     distinctUntilChanged(
-      ([prevOdo], [currentOdo]) => prevOdo?.odo === currentOdo?.odo,
+      ([prevOdo, prevLeasingInfo], [currentOdo, currentLeasingInfo]) =>
+        prevOdo?.odo === currentOdo?.odo &&
+        JSON.stringify(prevLeasingInfo) === JSON.stringify(currentLeasingInfo),
     ),
     map(([odo, leasingInfo]) =>
       this.generateAnalyticsData(odo!.odo, leasingInfo),
