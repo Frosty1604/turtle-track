@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
+html,
+body {
   @apply h-full w-full;
 }
 
@@ -15,11 +16,11 @@ input {
 // Scrollbar fix when modal is open
 :root:has(
     :is(
-        .modal-open,
-        .modal:target,
-        .modal-toggle:checked + .modal,
-        .modal[open]
-      )
+      .modal-open,
+      .modal:target,
+      .modal-toggle:checked + .modal,
+      .modal[open]
+    )
   ) {
   scrollbar-gutter: unset;
 }

@@ -17,7 +17,7 @@ let DB_INSTANCE: TurtleDb;
 async function createDB() {
   if (isDevMode()) {
     await import('rxdb/plugins/dev-mode').then((module) =>
-      addRxPlugin(module.RxDBDevModePlugin)
+      addRxPlugin(module.RxDBDevModePlugin),
     );
   }
 

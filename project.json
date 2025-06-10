@@ -9,9 +9,7 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/turtle-track",
         "index": "./src/index.html",
@@ -24,15 +22,9 @@
             "input": "public"
           }
         ],
-        "styles": [
-          "./src/styles.scss"
-        ],
-        "scripts": [
-          "node_modules/apexcharts/dist/apexcharts.min.js"
-        ],
-        "allowedCommonJsDependencies": [
-          "apexcharts"
-        ]
+        "styles": ["./src/styles.scss"],
+        "scripts": ["node_modules/apexcharts/dist/apexcharts.min.js"],
+        "allowedCommonJsDependencies": ["apexcharts"]
       },
       "configurations": {
         "production": {
@@ -80,16 +72,12 @@
     "lint": {
       "executor": "@nx/eslint:lint",
       "options": {
-        "lintFilePatterns": [
-          "./src"
-        ]
+        "lintFilePatterns": ["./src"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectName}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectName}"],
       "options": {
         "jestConfig": "jest.config.ts"
       }

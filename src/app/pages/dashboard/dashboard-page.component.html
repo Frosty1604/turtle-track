@@ -11,8 +11,11 @@
 <main class="flex flex-col gap-8 max-sm:px-4">
   @if (latestOdoEntry?.odo) {
     <div>
-      <tu-summary [totalKm]="latestOdoEntry!.odo" [difference]="analyticsData.differenceFromExpected"
-                  [differenceInDays]="analyticsData.idleDaysToReachExpectedKm" [isOverExpected]="analyticsData.isDistanceOverExpected" />
+      <tu-summary
+        [totalKm]="latestOdoEntry!.odo"
+        [difference]="analyticsData.differenceFromExpected"
+        [differenceInDays]="analyticsData.idleDaysToReachExpectedKm"
+        [isOverExpected]="analyticsData.isDistanceOverExpected" />
     </div>
   } @else {
     <tu-empty-odo-state (addEntryClicked)="openEntryModal()" />
@@ -32,7 +35,10 @@
     @if (modal.open && dialogComponent()) {
       @switch (dialogComponent()) {
         @case ('add') {
-          <tu-add-odo-form (submitted)="closeModal()" (canceled)="closeModal()" />
+          <tu-add-odo-form
+            (submitted)="closeModal()"
+            (canceled)="closeModal()"
+          />
         }
         @case ('leasingContract') {
           <tu-leasing-contract
