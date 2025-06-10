@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   inject,
-  Signal,
   signal,
   viewChild,
 } from '@angular/core';
@@ -50,7 +49,7 @@ export default class DashboardPageComponent {
 
   readonly latestOdoEntry = toSignal(this.#odoService.findMax());
 
-  readonly analyticsData: Signal<AnalyticsData> = toSignal(
+  readonly analyticsData = toSignal<AnalyticsData, AnalyticsData>(
     this.#analyticsService.analyticsData$,
     {
       initialValue: {
@@ -58,7 +57,7 @@ export default class DashboardPageComponent {
         expectedOdo: 0,
         idleDaysToReachExpectedKm: 0,
         isDistanceOverExpected: false,
-      } as AnalyticsData,
+      },
     },
   );
 

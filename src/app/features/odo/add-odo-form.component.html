@@ -3,7 +3,18 @@
   #form="ngForm"
   class="flex items-center justify-center flex-col gap-2"
 >
-  <h3 class="text-2xl self-start">ODO</h3>
+  <div class="flex flex-row justify-between items-center w-full">
+    <h3 class="text-2xl">ODO</h3>
+    @if (showReset()) {
+      <button
+        class="btn btn-ghost btn-sm btn-circle"
+        type="button"
+        (click)="resetOdo()"
+      >
+        <fast-svg name="reset" />
+      </button>
+    }
+  </div>
   <label class="input input-lg input-bordered w-full flex items-center gap-2">
     <input
       [(ngModel)]="odometer"
