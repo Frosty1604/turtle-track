@@ -16,7 +16,7 @@ export class LeasingInfoService {
     }
   }
 
-  saveLeasingInfo = (leasingInfo: LeasingInfo) => {
+  save = (leasingInfo: LeasingInfo) => {
     localStorage.setItem(LEASING_INFO_KEY, JSON.stringify(leasingInfo));
     this.leasingInfoSubject.next(leasingInfo);
   };
