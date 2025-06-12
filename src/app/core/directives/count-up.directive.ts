@@ -28,14 +28,18 @@ export class CountUpDirective implements OnInit {
   readonly countUp = input.required<number>();
   readonly duration = input(1000);
   readonly suffix = input('');
+  readonly isNegative = input(false);
 
   private currentCount$ = combineLatest([
     toObservable(this.countUp),
     toObservable(this.duration),
+    toObservable(this.isNegative),
   ]).pipe(
-    switchMap(([count, duration]) => {
+    switchMap(([count, duration, isNegative]) => {
       const startTime = animationFrameScheduler.now();
-
+      if (isNegative) {
+        count = -count;
+      }
       return interval(0, animationFrameScheduler).pipe(
         map(() => animationFrameScheduler.now() - startTime),
         map((elapsedTime) => elapsedTime / duration),

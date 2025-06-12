@@ -41,7 +41,7 @@ export class AnalyticsService {
     currentOdo: number,
     leasingInfo: LeasingInfo,
   ): AnalyticsData {
-    const dailyKmLimit = leasingInfo.yearlyKmLimit! / 365;
+    const dailyKmLimit = leasingInfo.yearlyKmLimit / 365;
 
     const daysSinceStart = Math.floor(
       (Date.now() - new Date(leasingInfo.startDate).getTime()) /

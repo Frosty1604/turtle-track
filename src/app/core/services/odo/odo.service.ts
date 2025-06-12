@@ -8,13 +8,16 @@ import { MangoQuerySortDirection } from 'rxdb/dist/types/types/rx-query';
 export class OdoService {
   readonly #db = inject(DatabaseService).db;
 
-  insert(odoMeter: number): Promise<RxDocument<OdoDocType>> {
+  save = (odoMeter: number | string): Promise<RxDocument<OdoDocType>> => {
+    if (typeof odoMeter === 'string') {
+      odoMeter = Number(odoMeter);
+    }
     return this.#db.odo.insert({
       id: crypto.randomUUID(),
       odo: odoMeter,
       dateTime: new Date().toISOString(),
     });
-  }
+  };
 
   findAll = (sort: MangoQuerySortDirection = 'asc') =>
     this.#db.odo.find({ sort: [{ odo: sort }] }).$;

@@ -12,7 +12,7 @@
   @if (latestOdoEntry?.odo) {
     <div>
       <tu-summary [totalKm]="latestOdoEntry!.odo" [difference]="analyticsData.differenceFromExpected"
-                  [differenceInDays]="analyticsData.idleDaysToReachExpectedKm" />
+                  [differenceInDays]="analyticsData.idleDaysToReachExpectedKm" [isOverExpected]="analyticsData.isDistanceOverExpected" />
     </div>
   } @else {
     <tu-empty-odo-state (addEntryClicked)="openEntryModal()" />

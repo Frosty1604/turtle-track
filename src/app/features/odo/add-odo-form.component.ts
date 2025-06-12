@@ -37,9 +37,9 @@ export class AddOdoFormComponent {
     () => this.odometer() !== this.latestOdoEntry()?.odo,
   );
 
-  readonly submitted = output();
+  readonly submitted = output<void>();
 
-  readonly canceled = output();
+  readonly canceled = output<void>();
 
   increaseODO(amount: number) {
     this.odometer.update((currentValue) => (currentValue ?? 0) + amount);
@@ -55,7 +55,7 @@ export class AddOdoFormComponent {
       return;
     }
 
-    await this.#odoService.insert(this.odometer()!);
+    await this.#odoService.save(this.odometer()!);
     this.submitted.emit();
   }
 

@@ -43,8 +43,8 @@ export class LeasingContractComponent {
     convertToHtmlInputDate(this.leasingInfo()?.startDate),
   );
 
-  readonly submitted = output();
-  readonly canceled = output();
+  readonly submitted = output<void>();
+  readonly canceled = output<void>();
 
   submit() {
     if (this.form().invalid) {
@@ -53,8 +53,8 @@ export class LeasingContractComponent {
       return;
     }
     const leasingInfo = {
-      yearlyKmLimit: this.yearlyKmLimit()!,
-      initialOdo: this.initialOdo()!,
+      yearlyKmLimit: Number(this.yearlyKmLimit()),
+      initialOdo: Number(this.initialOdo()),
       startDate: new Date(this.startDate()!).toISOString(),
     } as LeasingInfo;
     this.leasingInfoService.saveLeasingInfo(leasingInfo);

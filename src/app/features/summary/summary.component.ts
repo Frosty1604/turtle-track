@@ -16,17 +16,20 @@ import { CountUpDirective } from '../../core/directives/count-up.directive';
           [duration]="1500"
           suffix="km"
         ></div>
-        <div class="stat-desc">21% more than last month</div>
+        <div class="stat-desc">Total kilometers driven</div>
       </div>
       <div class="stat max-md:place-items-center">
         <div class="stat-title">Difference</div>
         <div
-          class="stat-value text-accent"
+          class="stat-value"
+          [class.text-accent]="!isOverExpected()"
+          [class.text-error]="isOverExpected()"
           [countUp]="difference()"
           [duration]="2000"
+          [isNegative]="isOverExpected()"
           suffix="km"
         ></div>
-        <div class="stat-desc">21% more than last month</div>
+        <div class="stat-desc">From expected leasing mileage</div>
       </div>
       <div class="stat max-md:place-items-center">
         <div
@@ -34,8 +37,13 @@ import { CountUpDirective } from '../../core/directives/count-up.directive';
           [countUp]="differenceInDays()"
           suffix="Days"
         ></div>
-        <div class="stat-title text-secondary">Ahead</div>
-        <div class="stat-desc">You're doing great so far!</div>
+        @if (isOverExpected()) {
+          <div class="stat-title text-error">Behind</div>
+          <div class="stat-desc">You should rest for a few days!</div>
+        } @else {
+          <div class="stat-title text-secondary">Ahead</div>
+          <div class="stat-desc">You're doing great so far!</div>
+        }
       </div>
     </div>
   `,
@@ -48,4 +56,6 @@ export class SummaryComponent {
   readonly totalKm = input.required<number>();
   readonly difference = input.required<number>();
   readonly differenceInDays = input.required<number>();
+
+  readonly isOverExpected = input.required<boolean>();
 }

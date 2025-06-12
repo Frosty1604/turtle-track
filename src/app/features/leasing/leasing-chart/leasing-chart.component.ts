@@ -46,6 +46,7 @@ export class LeasingChartComponent {
 
   readonly chartState: Signal<ApexOptions | null> = computed(() => {
     const data = this.series();
+    const analyticsData = this.analyticsData();
     if (!data?.series) {
       return null;
     }
@@ -56,6 +57,9 @@ export class LeasingChartComponent {
         ...defaultChartOptions.xaxis,
         categories: data.categories,
       },
+      ...(analyticsData.isDistanceOverExpected
+        ? { colors: ['oklch(var(--er))', 'oklch(var(--p))'] }
+        : {}),
     };
   });
 
