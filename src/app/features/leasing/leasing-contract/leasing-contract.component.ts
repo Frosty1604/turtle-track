@@ -57,7 +57,7 @@ export class LeasingContractComponent {
       initialOdo: Number(this.initialOdo()),
       startDate: new Date(this.startDate()!).toISOString(),
     } as LeasingInfo;
-    this.leasingInfoService.saveLeasingInfo(leasingInfo);
+    this.leasingInfoService.save(leasingInfo);
     this.submitted.emit();
   }
 

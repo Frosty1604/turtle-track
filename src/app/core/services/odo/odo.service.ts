@@ -1,8 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { DatabaseService } from '../database/database.service';
-import { RxDocument } from 'rxdb';
+import { MangoQuerySortDirection, RxDocument } from 'rxdb';
 import { OdoDocType } from '../../schema/odo.model';
-import { MangoQuerySortDirection } from 'rxdb/dist/types/types/rx-query';
 
 @Injectable()
 export class OdoService {

@@ -3,7 +3,7 @@ import {
   importProvidersFrom,
   isDevMode,
   provideAppInitializer,
-  provideExperimentalZonelessChangeDetection,
+  provideZonelessChangeDetection,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
@@ -16,7 +16,7 @@ const iconPathPrefix = isDevMode() ? '' : '/turtle-track';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideExperimentalZonelessChangeDetection(),
+    provideZonelessChangeDetection(),
     provideRouter(appRoutes),
     provideFastSVG({ url: (name) => `${iconPathPrefix}/icons/${name}.svg` }),
     provideAppInitializer(() => initDB()),
