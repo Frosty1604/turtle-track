@@ -19,6 +19,7 @@ import {
 import { LeasingChartComponent } from '../../features/leasing/leasing-chart/leasing-chart.component';
 import { SummaryComponent } from '../../features/summary/summary.component';
 import { EmptyOdoStateComponent } from '../../features/empty-odo-state/empty-odo-state.component';
+import { ThemeToggle } from '../../features/theme-toggle/theme-toggle';
 
 @Component({
   selector: 'tu-dashboard-page',
@@ -29,6 +30,7 @@ import { EmptyOdoStateComponent } from '../../features/empty-odo-state/empty-odo
     LeasingChartComponent,
     SummaryComponent,
     EmptyOdoStateComponent,
+    ThemeToggle,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './dashboard-page.component.html',

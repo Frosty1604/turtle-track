@@ -1,8 +1,9 @@
 @let analyticsData = this.analyticsData();
 @let latestOdoEntry = this.latestOdoEntry();
 <header>
-  <nav class="navbar">
+  <nav class="navbar gap-2">
     <div class="flex-1"></div>
+    <tu-theme-toggle />
     <button (click)="openLeasingInfoModal()" class="btn btn-circle flex-none">
       <fast-svg name="cog" />
     </button>
@@ -23,8 +24,8 @@
   <div>
     <tu-leasing-chart [analyticsData]="analyticsData" />
   </div>
-  <div class="fixed right-8 bottom-8 shadow-xl">
-    <button class="btn-circle btn btn-accent btn-lg" (click)="openEntryModal()">
+  <div class="fixed right-8 bottom-8">
+    <button class="btn-circle btn btn-accent btn-lg shadow-xl" (click)="openEntryModal()">
       <fast-svg name="plus" size="36" />
     </button>
   </div>
