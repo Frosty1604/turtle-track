@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1749762787181,
+  "timestamp": 1752523283831,
   "index": "https://frosty1604.github.io/turtle-track/index.html",
   "assetGroups": [
     {
@@ -11,18 +11,18 @@
         "ignoreVary": true
       },
       "urls": [
-        "https://frosty1604.github.io/turtle-track/chunk-5LN5MSON.js",
-        "https://frosty1604.github.io/turtle-track/chunk-ER6B6KGD.js",
-        "https://frosty1604.github.io/turtle-track/chunk-IAKSZIGD.js",
-        "https://frosty1604.github.io/turtle-track/chunk-KAT7YFEL.js",
-        "https://frosty1604.github.io/turtle-track/chunk-NCIUIYJQ.js",
-        "https://frosty1604.github.io/turtle-track/chunk-WEHQUVHL.js",
+        "https://frosty1604.github.io/turtle-track/chunk-4F6X2NIL.js",
+        "https://frosty1604.github.io/turtle-track/chunk-DVPTWW7E.js",
+        "https://frosty1604.github.io/turtle-track/chunk-L6B6EH3K.js",
+        "https://frosty1604.github.io/turtle-track/chunk-MKOHAXWR.js",
+        "https://frosty1604.github.io/turtle-track/chunk-PFHXWNFC.js",
+        "https://frosty1604.github.io/turtle-track/chunk-USDBABIG.js",
         "https://frosty1604.github.io/turtle-track/favicon.ico",
         "https://frosty1604.github.io/turtle-track/index.html",
-        "https://frosty1604.github.io/turtle-track/main-GW2ZMWEQ.js",
+        "https://frosty1604.github.io/turtle-track/main-OSI2COTH.js",
         "https://frosty1604.github.io/turtle-track/manifest.webmanifest",
         "https://frosty1604.github.io/turtle-track/scripts-PGJSDJ25.js",
-        "https://frosty1604.github.io/turtle-track/styles-6L6PTKQS.css"
+        "https://frosty1604.github.io/turtle-track/styles-YUBJO5AI.css"
       ],
       "patterns": []
     },
@@ -44,20 +44,22 @@
         "https://frosty1604.github.io/turtle-track/icons/icon-72x72.png",
         "https://frosty1604.github.io/turtle-track/icons/icon-96x96.png",
         "https://frosty1604.github.io/turtle-track/icons/icon.png",
+        "https://frosty1604.github.io/turtle-track/icons/moon-stars.svg",
         "https://frosty1604.github.io/turtle-track/icons/plus.svg",
-        "https://frosty1604.github.io/turtle-track/icons/reset.svg"
+        "https://frosty1604.github.io/turtle-track/icons/reset.svg",
+        "https://frosty1604.github.io/turtle-track/icons/sun.svg"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://frosty1604.github.io/turtle-track/chunk-5LN5MSON.js": "137d8fb8d9a9e2af9a2996fab8b203d3ac9a495c",
-    "https://frosty1604.github.io/turtle-track/chunk-ER6B6KGD.js": "44f44c09abb941b08b358e09940d9767082a3b50",
-    "https://frosty1604.github.io/turtle-track/chunk-IAKSZIGD.js": "1b8d9796b26d90d7be33bdbcf91c3b335b0c1eaf",
-    "https://frosty1604.github.io/turtle-track/chunk-KAT7YFEL.js": "48e9863195e0f728461fdf0b258c4ade757973b2",
-    "https://frosty1604.github.io/turtle-track/chunk-NCIUIYJQ.js": "9c647397cd5fdcf3aa8af6b54d9848296e3fa021",
-    "https://frosty1604.github.io/turtle-track/chunk-WEHQUVHL.js": "eaae6bd29b722231ea1d8f39d7aef33b32a9b404",
+    "https://frosty1604.github.io/turtle-track/chunk-4F6X2NIL.js": "24b1c9a04d5ba1d997c133ebeaf6bb1dd517a038",
+    "https://frosty1604.github.io/turtle-track/chunk-DVPTWW7E.js": "d950005ac8d58d87ac4a590d4e6c7da7aa7ad534",
+    "https://frosty1604.github.io/turtle-track/chunk-L6B6EH3K.js": "93366bed356ea825f5b55d56a73d47cce0738f6a",
+    "https://frosty1604.github.io/turtle-track/chunk-MKOHAXWR.js": "9ba76528949900b674603cbce1b89e1a8ef96efc",
+    "https://frosty1604.github.io/turtle-track/chunk-PFHXWNFC.js": "ffb0d9ae1992511aa2ae98c902d0c5f44dc5e36e",
+    "https://frosty1604.github.io/turtle-track/chunk-USDBABIG.js": "d19b8a30c4ec4ddae6320217de765a0a59676470",
     "https://frosty1604.github.io/turtle-track/favicon.ico": "380113e035b20aadd28230bc5b56c37c521359e4",
     "https://frosty1604.github.io/turtle-track/icons/cog.svg": "70d2089d55a51284d59edd8708c114590e0d9ffe",
     "https://frosty1604.github.io/turtle-track/icons/icon-128x128.png": "ffe6c540ba0561bd60351ec2a71c7e559526b0ea",
@@ -69,13 +71,15 @@
     "https://frosty1604.github.io/turtle-track/icons/icon-72x72.png": "bb2d17f2cbf88494bd449ad739c4e6213752340a",
     "https://frosty1604.github.io/turtle-track/icons/icon-96x96.png": "d1ae681ed4dcfc5a581902a9870e7ae2fd99c9bc",
     "https://frosty1604.github.io/turtle-track/icons/icon.png": "0f593800c34135c1db4ec8e1e43d4c1a39a4c8c6",
+    "https://frosty1604.github.io/turtle-track/icons/moon-stars.svg": "a58e3a087cc2ba4e223ef1b812a4577e3af0859a",
     "https://frosty1604.github.io/turtle-track/icons/plus.svg": "2dc3bfb6ababa051723d988b6c949168c5799980",
-    "https://frosty1604.github.io/turtle-track/icons/reset.svg": "39a3f78d46c2aafb547e535468bfc01a9a31581e",
-    "https://frosty1604.github.io/turtle-track/index.html": "36d8cff27a2bf010a51f7b8acf9153514d67bc92",
-    "https://frosty1604.github.io/turtle-track/main-GW2ZMWEQ.js": "cba54feb3536afa5962949d46b6e67fc6c18935d",
-    "https://frosty1604.github.io/turtle-track/manifest.webmanifest": "4718e181acabba1c147b1f17b658136ce5adf877",
+    "https://frosty1604.github.io/turtle-track/icons/reset.svg": "8401ee5a57e275b9f8bb4e211eb278e4c608fa5c",
+    "https://frosty1604.github.io/turtle-track/icons/sun.svg": "930dc10659c316ac3ad83746379a0207df5125dc",
+    "https://frosty1604.github.io/turtle-track/index.html": "acf1bf68c049943638ca026cbfdd4fe84740bdce",
+    "https://frosty1604.github.io/turtle-track/main-OSI2COTH.js": "30dc86b7417a4fadef488f7350ca14ee38ae6692",
+    "https://frosty1604.github.io/turtle-track/manifest.webmanifest": "3eaaf0d899f0234f39f3262d2e92ba8f0cd2e3f4",
     "https://frosty1604.github.io/turtle-track/scripts-PGJSDJ25.js": "5ee0d5459bc5740b5d958e6c523543f733a7a5c1",
-    "https://frosty1604.github.io/turtle-track/styles-6L6PTKQS.css": "12bc5e2030be4c866cd0ab9e05ccb7cabfde42e8"
+    "https://frosty1604.github.io/turtle-track/styles-YUBJO5AI.css": "534c4aab1347482b6bdad325855d3acce798d0ba"
   },
   "navigationUrls": [
     {
