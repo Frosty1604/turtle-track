@@ -3,20 +3,19 @@ import { injectLocalStorage } from 'ngxtension/inject-local-storage';
 
 export type Theme = 'light' | 'dark';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ThemeService {
-  private readonly document = inject(DOCUMENT);
+  readonly #document = inject(DOCUMENT);
 
-  private readonly _theme = injectLocalStorage<Theme>('theme', {
+  readonly _theme = injectLocalStorage<Theme>('theme', {
     defaultValue: 'dark',
   });
 
   readonly theme = this._theme.asReadonly();
 
-  private onThemeChange = effect(() => {
-    this.document.documentElement.setAttribute('data-theme', this._theme());
+  // eslint-disable-next-line no-unused-private-class-members
+  #onThemeChange = effect(() => {
+    this.#document.documentElement.setAttribute('data-theme', this._theme());
   });
 
   setTheme(theme: Theme) {

@@ -42,6 +42,7 @@ import { ThemeService } from './theme.service';
     </label>
   `,
   imports: [FormsModule],
+  providers: [ThemeService],
 })
 export class ThemeToggle {
   private readonly themeService = inject(ThemeService);
